@@ -62,7 +62,7 @@ export function SlideFooter({
         </div>
       </div>
       {pageNumber !== undefined && (
-        <div className="slide-page tabular-nums">{String(pageNumber).padStart(2, "0")} / 10</div>
+        <div className="slide-page tabular-nums">{String(pageNumber).padStart(2, "0")} / 08</div>
       )}
     </div>
   );

@@ -4,7 +4,6 @@ import {
   MagikhiMark,
   EluminaMark,
   Card,
-  NumberedItem,
 } from "./primitives";
 
 /* ================================================================
@@ -14,7 +13,6 @@ export function Cover() {
   return (
     <SlideFrame variant="dark" showFooter={false}>
       <div className="absolute inset-0 flex flex-col justify-between px-24 py-20">
-        {/* Top: two logos */}
         <div className="flex items-start justify-between">
           <MagikhiMark variant="dark" />
           <div className="flex items-center gap-6">
@@ -25,7 +23,6 @@ export function Cover() {
           </div>
         </div>
 
-        {/* Center: title */}
         <div className="max-w-[1500px]">
           <Kicker variant="dark">Proposta Comercial · 2026</Kicker>
           <h1 className="slide-title-lg mt-8" style={{ color: "#F5F7FA" }}>
@@ -36,14 +33,13 @@ export function Cover() {
           </h1>
           <p
             className="slide-subtitle mt-10"
-            style={{ color: "oklch(0.82 0.02 250)", maxWidth: 1400 }}
+            style={{ color: "oklch(0.82 0.02 250)", maxWidth: 1500 }}
           >
-            Centralização de dados, triagem de sinistros por IA e controle financeiro
-            para a Mágikhi Corretora.
+            Centralização de dados, triagem de sinistros por IA e controle de fluxo
+            de caixa para a Mágikhi Corretora.
           </p>
         </div>
 
-        {/* Bottom: meta */}
         <div className="flex items-end justify-between">
           <div className="flex items-center gap-6">
             <div
@@ -53,7 +49,7 @@ export function Cover() {
               Case de Sucesso · Nº 1
             </div>
             <div className="slide-chrome" style={{ color: "oklch(0.75 0.02 250)" }}>
-              10 slides · 12 min
+              8 slides
             </div>
           </div>
           <div
@@ -69,7 +65,7 @@ export function Cover() {
 }
 
 /* ================================================================
- * Slide 2 — Cenário Atual
+ * Slide 2 — O Cenário Operacional
  * ================================================================ */
 const SEGURADORAS = [
   "Porto Seguro",
@@ -87,19 +83,19 @@ export function Scenario() {
   return (
     <SlideFrame variant="light" pageNumber={2}>
       <div className="absolute inset-0 flex flex-col px-24 py-20 pb-32">
-        <Kicker>01 · Diagnóstico</Kicker>
+        <Kicker>01 · Cenário Operacional</Kicker>
         <h2 className="slide-title mt-6" style={{ maxWidth: 1500 }}>
           O desafio de operar <br />
           <span style={{ color: "var(--navy-soft)" }}>sem uma base centralizada</span>
         </h2>
 
-        <div className="mt-14 grid flex-1 grid-cols-12 gap-10">
-          {/* Left: text */}
+        <div className="mt-12 grid flex-1 grid-cols-12 gap-10">
           <div className="col-span-6 flex flex-col justify-start">
             <p className="slide-body-lg" style={{ color: "var(--navy)", maxWidth: 780 }}>
-              Gerenciar a corretora acessando manualmente{" "}
-              <b style={{ color: "var(--navy-deep)" }}>9 portais de seguradoras</b> gera
-              descentralização, ruído e retrabalho.
+              Gerenciar clientes acessando manualmente{" "}
+              <b style={{ color: "var(--navy-deep)" }}>9 portais de seguradoras</b>{" "}
+              (Porto Seguro, Azul, HDI, Bradesco, etc.) gera descentralização e
+              retrabalho.
             </p>
             <p
               className="slide-body mt-8"
@@ -109,22 +105,10 @@ export function Scenario() {
               <span style={{ color: "var(--emerald)", fontWeight: 600 }}>
                 Fonte Única da Verdade
               </span>{" "}
-              para seus dados e operações — eliminando de vez o vaivém de planilhas.
+              para organizar seus dados e operações em uma única tela.
             </p>
-
-            <Card className="mt-12 p-8" >
-              <div className="slide-chrome" style={{ color: "var(--navy-soft)" }}>
-                Sintomas hoje
-              </div>
-              <ul className="mt-4 space-y-3 slide-body" style={{ color: "var(--navy)" }}>
-                <li>· Dados espalhados em múltiplos logins</li>
-                <li>· Planilhas manuais para consolidar comissão</li>
-                <li>· Renovações e inadimplência sem alerta unificado</li>
-              </ul>
-            </Card>
           </div>
 
-          {/* Right: portals grid */}
           <div className="col-span-6">
             <div className="slide-chrome mb-6" style={{ color: "var(--navy-soft)" }}>
               9 portais acessados manualmente
@@ -167,82 +151,54 @@ export function Bottleneck() {
   return (
     <SlideFrame variant="light" pageNumber={3}>
       <div className="absolute inset-0 flex flex-col px-24 py-20 pb-32">
-        <Kicker>02 · Dor Operacional</Kicker>
+        <Kicker>02 · Pós-Venda</Kicker>
         <h2 className="slide-title mt-6" style={{ maxWidth: 1500 }}>
-          O peso do <span style={{ color: "var(--emerald)" }}>atendimento manual</span>
-          <br />
-          de sinistros
+          O impacto do{" "}
+          <span style={{ color: "var(--emerald)" }}>atendimento manual</span>
         </h2>
+        <p
+          className="slide-subtitle mt-8"
+          style={{ color: "var(--navy-soft)", maxWidth: 1500 }}
+        >
+          Sinistros e cobrança de parcelas em atraso drenam o tempo comercial da
+          equipe.
+        </p>
 
-        <div className="mt-14 grid flex-1 grid-cols-12 gap-12">
-          <div className="col-span-7">
-            <p
-              className="slide-body-lg"
-              style={{ color: "var(--navy)", maxWidth: 900, lineHeight: 1.35 }}
-            >
-              O sinistro é o momento de <b>maior tensão</b> para o cliente. A equipe hoje
-              gasta horas preciosas no WhatsApp:
-            </p>
-
-            <div className="mt-10 space-y-6" style={{ maxWidth: 900 }}>
-              {[
-                ["Ouvindo relatos longos", "Áudios de 3 a 8 minutos com a dinâmica do acidente."],
-                ["Pedindo documentos repetidamente", "CNH, CRLV, comprovantes — enviados aos poucos."],
-                ["Conferindo se a foto está legível", "Checagem visual manual, uma por uma."],
-                ["Acalmando o segurado", "Suporte emocional em paralelo à triagem técnica."],
-              ].map(([t, d]) => (
-                <div key={t} className="flex gap-5">
-                  <div
-                    className="mt-3 h-2 w-2 shrink-0 rounded-full"
-                    style={{ background: "var(--emerald)" }}
-                  />
-                  <div>
-                    <div className="slide-body-lg font-semibold" style={{ color: "var(--navy-deep)" }}>
-                      {t}
-                    </div>
-                    <div className="slide-body" style={{ color: "var(--navy-soft)" }}>
-                      {d}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right: stat */}
-          <div className="col-span-5 flex items-center">
-            <Card
-              variant="dark"
-              className="w-full p-12"
-            >
+        <div className="mt-12 grid flex-1 grid-cols-2 gap-10">
+          {[
+            {
+              t: "Sinistros",
+              d: "A cada ocorrência, horas de WhatsApp com o cliente para coletar relato, documentos e fotos — antes mesmo de abrir o caso no portal da seguradora.",
+            },
+            {
+              t: "Cobranças em atraso",
+              d: "Conferência manual de relatórios de pendências e contato individual com cada segurado inadimplente antes que a apólice caia.",
+            },
+          ].map((b) => (
+            <Card key={b.t} className="p-10">
+              <div className="slide-chrome" style={{ color: "var(--emerald)" }}>
+                {b.t}
+              </div>
               <div
-                className="rounded-2xl p-10"
-                style={{ background: "var(--navy-deep)", color: "#F5F7FA" }}
+                className="slide-body-lg mt-4"
+                style={{ color: "var(--navy-deep)" }}
               >
-                <div
-                  className="slide-chrome"
-                  style={{ color: "var(--emerald-soft)", letterSpacing: "0.28em" }}
-                >
-                  Custo escondido
-                </div>
-                <div
-                  className="mt-6"
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: 168,
-                    lineHeight: 1,
-                    letterSpacing: "-0.04em",
-                    color: "var(--emerald)",
-                  }}
-                >
-                  42h
-                </div>
-                <div className="slide-body-lg mt-4" style={{ color: "#F5F7FA" }}>
-                  por mês em burocracia manual de sinistros — tempo que{" "}
-                  <span style={{ color: "var(--emerald-soft)" }}>não</span> gera comissão.
-                </div>
+                {b.d}
               </div>
             </Card>
+          ))}
+        </div>
+
+        <div
+          className="mt-10 rounded-2xl p-8"
+          style={{ background: "var(--navy-deep)", color: "#F5F7FA" }}
+        >
+          <div className="slide-body-lg" style={{ color: "#F5F7FA" }}>
+            O foco do projeto é{" "}
+            <span style={{ color: "var(--emerald)", fontWeight: 600 }}>
+              eliminar a digitação repetitiva
+            </span>{" "}
+            de dados e transformar o atendimento em algo proativo e automatizado.
           </div>
         </div>
       </div>
@@ -270,20 +226,41 @@ export function Engineering() {
               className="slide-body-lg"
               style={{ color: "oklch(0.85 0.02 250)", maxWidth: 820 }}
             >
-              Em vez de <s style={{ color: "oklch(0.60 0.10 30)" }}>integrações via API</s>{" "}
-              que quebram toda semana nos portais das seguradoras, nossa tecnologia trabalha
-              por <b style={{ color: "var(--emerald)" }}>interceptação de arquivos</b>.
+              Sem <s style={{ color: "oklch(0.60 0.10 30)" }}>integrações instáveis via API</s>{" "}
+              que quebram nos portais das seguradoras.
             </p>
             <p
               className="slide-body mt-8"
               style={{ color: "oklch(0.78 0.02 250)", maxWidth: 820 }}
             >
-              Sua equipe faz o download padrão do PDF/Excel do portal, arrasta para o painel,
-              e a nossa IA extrai e processa tudo de forma automática.
+              Sua equipe faz o download padrão do PDF/Excel do portal (o que leva
+              segundos), arrasta para o painel, e a nossa IA{" "}
+              <b style={{ color: "var(--emerald)" }}>extrai e processa</b> todas as
+              informações de forma automática.
             </p>
+
+            <div
+              className="mt-10 rounded-2xl px-8 py-6"
+              style={{
+                background: "oklch(1 0 0 / 0.06)",
+                border: "1px solid var(--emerald)",
+              }}
+            >
+              <div
+                className="slide-chrome"
+                style={{ color: "var(--emerald-soft)" }}
+              >
+                Próximo bloco
+              </div>
+              <div
+                className="slide-body-lg mt-2"
+                style={{ color: "#F5F7FA" }}
+              >
+                → Transição para a Demonstração Prática do Sistema Mágikhi
+              </div>
+            </div>
           </div>
 
-          {/* Right: flow diagram */}
           <div className="col-span-6 flex items-center">
             <div className="w-full space-y-6">
               {[
@@ -329,137 +306,93 @@ export function Engineering() {
 }
 
 /* ================================================================
- * Slide 5 — Entregável 1: Base Cadastral
+ * Slide 5 — Funcionário Digital (WhatsApp)
  * ================================================================ */
-export function Deliverable1() {
+export function DigitalEmployee() {
   return (
     <SlideFrame variant="light" pageNumber={5}>
       <div className="absolute inset-0 flex flex-col px-24 py-20 pb-32">
         <div className="flex items-center gap-6">
-          <Kicker>Entregável 01</Kicker>
+          <Kicker>04 · Funcionário Digital</Kicker>
           <div
             className="rounded-full px-5 py-2 slide-badge"
-            style={{ background: "var(--navy-deep)", color: "#F5F7FA" }}
+            style={{ background: "var(--emerald)", color: "var(--navy-deep)" }}
           >
-            Base Cadastral
+            WhatsApp 24h
           </div>
         </div>
         <h2 className="slide-title mt-6" style={{ maxWidth: 1500 }}>
-          Sua <span style={{ color: "var(--emerald)" }}>Fonte Única da Verdade</span>
+          Triagem inteligente de{" "}
+          <span style={{ color: "var(--emerald)" }}>sinistros</span>
         </h2>
 
-        <div className="mt-12 grid flex-1 grid-cols-12 gap-8">
-          {/* Left copy */}
-          <div className="col-span-5">
-            <p className="slide-body" style={{ color: "var(--navy-soft)", maxWidth: 700 }}>
-              Um painel centralizado para controle de <b>Clientes Cadastrados</b>,{" "}
-              <b>Apólices Ativas</b> e contratos <b>Em Renovação</b>.
+        <div className="mt-12 grid flex-1 grid-cols-12 gap-10">
+          <div className="col-span-6">
+            <p className="slide-body-lg" style={{ color: "var(--navy)", maxWidth: 820 }}>
+              A IA atende o cliente acidentado com <b>empatia</b> no WhatsApp,
+              cuidando de toda a triagem antes do corretor entrar em ação.
             </p>
-            <div
-              className="mt-8 rounded-2xl p-8"
-              style={{
-                background: "linear-gradient(135deg, var(--navy-deep), var(--navy))",
-                color: "#F5F7FA",
-              }}
-            >
-              <div className="slide-chrome" style={{ color: "var(--emerald-soft)" }}>
-                Mecanismo de Checagem por IA
-              </div>
-              <div className="slide-body-lg mt-4" style={{ color: "#F5F7FA" }}>
-                Arraste o relatório de pendências da seguradora e a IA altera o status
-                dos clientes para{" "}
-                <span
-                  className="rounded-md px-3 py-1"
-                  style={{ background: "oklch(0.60 0.20 25)", color: "#fff", fontSize: 30 }}
-                >
-                  Inadimplente
-                </span>{" "}
-                na hora.
-              </div>
-            </div>
+            <ul className="mt-8 space-y-5" style={{ maxWidth: 820 }}>
+              {[
+                ["Transcreve relatos em áudio", "Áudios longos viram texto estruturado."],
+                ["Solicita e valida documentos", "CNH e CRLV são checados quanto à nitidez."],
+                ["Monta o dossiê completo", "Caso 100% mastigado, pronto para o portal."],
+              ].map(([t, d]) => (
+                <li key={t} className="flex gap-5">
+                  <div
+                    className="mt-3 h-2 w-2 shrink-0 rounded-full"
+                    style={{ background: "var(--emerald)" }}
+                  />
+                  <div>
+                    <div className="slide-body-lg font-semibold" style={{ color: "var(--navy-deep)" }}>
+                      {t}
+                    </div>
+                    <div className="slide-body" style={{ color: "var(--navy-soft)" }}>
+                      {d}
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Right: mocked dashboard */}
-          <div className="col-span-7">
-            <Card className="p-8">
-              <div className="flex items-center gap-3 border-b pb-5" style={{ borderColor: "var(--slate-mid)" }}>
-                <div className="h-3 w-3 rounded-full" style={{ background: "var(--emerald)" }} />
-                <div className="slide-chrome" style={{ color: "var(--navy-soft)" }}>
-                  Painel · Base Cadastral
-                </div>
-              </div>
-
-              <div className="mt-6 grid grid-cols-3 gap-4">
-                {[
-                  { k: "Cadastrados", v: "1.842", c: "var(--navy)" },
-                  { k: "Apólices Ativas", v: "1.607", c: "var(--emerald)" },
-                  { k: "Em Renovação", v: "97", c: "var(--navy-soft)" },
-                ].map((s) => (
-                  <div
-                    key={s.k}
-                    className="rounded-xl p-5"
-                    style={{ background: "var(--slate-light)" }}
-                  >
-                    <div className="slide-caption" style={{ color: "var(--navy-soft)" }}>
-                      {s.k}
-                    </div>
-                    <div
-                      className="mt-2"
-                      style={{
-                        fontFamily: "var(--font-display)",
-                        fontSize: 56,
-                        color: s.c,
-                        lineHeight: 1,
-                      }}
-                    >
-                      {s.v}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Drop zone */}
+          <div className="col-span-6 flex items-center">
+            <Card className="w-full p-8">
               <div
-                className="mt-6 rounded-xl border-2 border-dashed px-6 py-6 text-center"
-                style={{
-                  borderColor: "var(--emerald)",
-                  background: "oklch(0.62 0.14 165 / 0.06)",
-                }}
+                className="rounded-2xl p-8"
+                style={{ background: "var(--slate-light)" }}
               >
-                <div className="slide-body font-semibold" style={{ color: "var(--navy-deep)" }}>
-                  ↓ Arraste aqui o relatório de pendências (PDF/Excel)
+                <div className="slide-chrome mb-5" style={{ color: "var(--navy-soft)" }}>
+                  Dossiê · WhatsApp → Painel do corretor
                 </div>
-                <div className="slide-caption mt-1" style={{ color: "var(--navy-soft)" }}>
-                  IA cruza CPFs e atualiza status automaticamente
-                </div>
-              </div>
-
-              {/* Rows */}
-              <div className="mt-6 space-y-2">
-                {[
-                  ["Ana Beatriz Rocha", "Auto · Porto", "Ativa", "var(--emerald)"],
-                  ["Carlos Menezes", "Vida · Bradesco", "Renovar", "var(--navy-soft)"],
-                  ["Márcia Lopes", "Auto · HDI", "Inadimplente", "oklch(0.60 0.20 25)"],
-                ].map(([n, p, s, c]) => (
-                  <div
-                    key={n}
-                    className="flex items-center justify-between rounded-lg px-4 py-3"
-                    style={{ background: "var(--slate-light)" }}
-                  >
-                    <div className="slide-body font-medium" style={{ color: "var(--navy-deep)" }}>
-                      {n}
-                    </div>
-                    <div className="slide-caption" style={{ color: "var(--navy-soft)" }}>
-                      {p}
-                    </div>
+                <div className="space-y-3">
+                  {[
+                    ["Cliente", "Ana Beatriz Rocha"],
+                    ["Apólice", "Auto · Porto Seguro"],
+                    ["Relato transcrito", "Colisão traseira em rotatória, sem vítimas."],
+                    ["CNH", "Validada ✓"],
+                    ["CRLV", "Validado ✓"],
+                    ["Fotos", "4/4 nítidas ✓"],
+                  ].map(([k, v]) => (
                     <div
-                      className="rounded-full px-3 py-1 slide-caption font-semibold"
-                      style={{ background: c, color: "#fff" }}
+                      key={k}
+                      className="flex items-center justify-between rounded-lg bg-white px-5 py-3"
                     >
-                      {s}
+                      <div className="slide-caption" style={{ color: "var(--navy-soft)" }}>
+                        {k}
+                      </div>
+                      <div className="slide-body font-medium" style={{ color: "var(--navy-deep)" }}>
+                        {v}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+                <div
+                  className="mt-5 rounded-lg px-5 py-3 slide-body font-semibold text-center"
+                  style={{ background: "var(--emerald)", color: "var(--navy-deep)" }}
+                >
+                  Copiar e colar no portal da seguradora
+                </div>
               </div>
             </Card>
           </div>
@@ -470,107 +403,47 @@ export function Deliverable1() {
 }
 
 /* ================================================================
- * Slide 6 — Entregável 2: Assistente WhatsApp
+ * Slide 6 — Customização
  * ================================================================ */
-export function Deliverable2() {
+export function Customization() {
   return (
     <SlideFrame variant="light" pageNumber={6}>
       <div className="absolute inset-0 flex flex-col px-24 py-20 pb-32">
-        <div className="flex items-center gap-6">
-          <Kicker>Entregável 02</Kicker>
-          <div
-            className="rounded-full px-5 py-2 slide-badge"
-            style={{ background: "#25D366", color: "#0a3a1e" }}
-          >
-            WhatsApp · 24h
-          </div>
-        </div>
-        <h2 className="slide-title mt-6" style={{ maxWidth: 1600 }}>
-          Triagem, acolhimento <br />
-          e <span style={{ color: "var(--emerald)" }}>visão computacional</span> 24h
+        <Kicker>05 · Flexibilidade</Kicker>
+        <h2 className="slide-title mt-6" style={{ maxWidth: 1500 }}>
+          Um sistema{" "}
+          <span style={{ color: "var(--emerald)" }}>sob medida</span> para a Mágikhi
         </h2>
 
         <div className="mt-12 grid flex-1 grid-cols-12 gap-10">
-          {/* Left: WhatsApp mock */}
-          <div className="col-span-5 flex items-center justify-center">
-            <div
-              className="w-full max-w-[440px] rounded-3xl p-6"
-              style={{
-                background: "#075E54",
-                boxShadow: "0 30px 60px -30px oklch(0.20 0.055 258 / 0.35)",
-              }}
+          <div className="col-span-6">
+            <p className="slide-body-lg" style={{ color: "var(--navy)", maxWidth: 820 }}>
+              Não entregamos um software de prateleira engessado. A demonstração
+              apresentada é a nossa <b>ideia base</b>.
+            </p>
+            <p
+              className="slide-body mt-8"
+              style={{ color: "var(--navy-soft)", maxWidth: 820 }}
             >
-              <div className="flex items-center gap-3 pb-4" style={{ borderBottom: "1px solid oklch(1 0 0 / 0.15)" }}>
-                <div className="h-10 w-10 rounded-full" style={{ background: "var(--emerald)" }} />
-                <div className="text-white">
-                  <div style={{ fontSize: 20, fontWeight: 600 }}>Mágikhi · Assistente</div>
-                  <div style={{ fontSize: 14, opacity: 0.7 }}>online agora</div>
-                </div>
-              </div>
-              <div className="mt-4 space-y-3">
-                <div
-                  className="max-w-[85%] rounded-2xl rounded-bl-sm px-4 py-3"
-                  style={{ background: "#fff", fontSize: 18, color: "#111" }}
-                >
-                  Oi, Lucas. Que susto! Estou aqui para te ajudar. Respire — vamos resolver
-                  juntos. 💚
-                </div>
-                <div
-                  className="ml-auto max-w-[80%] rounded-2xl rounded-br-sm px-4 py-3"
-                  style={{ background: "#DCF8C6", fontSize: 18, color: "#111" }}
-                >
-                  🎙️ áudio · 2:47
-                </div>
-                <div
-                  className="max-w-[85%] rounded-2xl rounded-bl-sm px-4 py-3"
-                  style={{ background: "#fff", fontSize: 18, color: "#111" }}
-                >
-                  Transcrevi seu relato. Agora preciso da foto da CNH e 3 fotos do carro
-                  (frente, lateral e o dano).
-                </div>
-                <div
-                  className="ml-auto max-w-[70%] rounded-2xl rounded-br-sm px-3 py-3"
-                  style={{ background: "#DCF8C6" }}
-                >
-                  <div
-                    className="h-24 w-full rounded-lg"
-                    style={{ background: "linear-gradient(135deg,#888,#444)" }}
-                  />
-                </div>
-                <div
-                  className="max-w-[85%] rounded-2xl rounded-bl-sm px-4 py-3"
-                  style={{ background: "#fff", fontSize: 18, color: "#111" }}
-                >
-                  ✅ Foto legível · Dano estimado:{" "}
-                  <b style={{ color: "var(--emerald)" }}>perda média</b>.
-                </div>
-              </div>
-            </div>
+              Como nossa engenharia é própria, o painel, os botões e os relatórios
+              financeiros podem ser <b style={{ color: "var(--emerald)" }}>adaptados</b>{" "}
+              conforme a rotina real de trabalho da corretora exigir.
+            </p>
           </div>
 
-          {/* Right: capabilities */}
-          <div className="col-span-7 flex flex-col justify-center gap-5">
+          <div className="col-span-6 grid grid-cols-2 gap-6 self-center">
             {[
-              ["Acolhimento com empatia", "Recebe o cliente acidentado com tom humano e calmo."],
-              ["Transcrição de áudios", "Extrai a dinâmica do acidente automaticamente."],
-              ["Solicitação inteligente", "Pede os documentos certos, na ordem certa."],
-              ["Visão computacional", "Avalia fotos do dano: leve · média · total."],
-              ["Validação de legibilidade", "Detecta CNH borrada e pede reenvio educadamente."],
-            ].map(([t, d]) => (
-              <Card key={t} className="flex items-center gap-6 px-8 py-5">
-                <div
-                  className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full"
-                  style={{ background: "var(--emerald)", color: "var(--navy-deep)", fontSize: 28 }}
-                >
-                  ✓
+              { t: "Painel", d: "Layout e blocos ajustados à sua operação." },
+              { t: "Botões e fluxos", d: "Ações rápidas para o dia a dia." },
+              { t: "Relatórios financeiros", d: "Visão que faz sentido para você." },
+              { t: "Engenharia própria", d: "Sem depender de fornecedor externo." },
+            ].map((c) => (
+              <Card key={c.t} className="p-7">
+                <div className="slide-chrome" style={{ color: "var(--emerald)" }}>
+                  {c.t}
                 </div>
-                <div>
-                  <div className="slide-body-lg font-semibold" style={{ color: "var(--navy-deep)" }}>
-                    {t}
-                  </div>
-                  <div className="slide-body" style={{ color: "var(--navy-soft)" }}>
-                    {d}
-                  </div>
+                <div className="slide-body mt-3" style={{ color: "var(--navy-deep)" }}>
+                  {c.d}
                 </div>
               </Card>
             ))}
@@ -582,373 +455,77 @@ export function Deliverable2() {
 }
 
 /* ================================================================
- * Slide 7 — Entregável 3: Dossiê do Sinistro
- * ================================================================ */
-export function Deliverable3() {
-  return (
-    <SlideFrame variant="dark" pageNumber={7}>
-      <div className="absolute inset-0 flex flex-col px-24 py-20 pb-32">
-        <div className="flex items-center gap-6">
-          <Kicker variant="dark">Entregável 03</Kicker>
-          <div
-            className="rounded-full px-5 py-2 slide-badge"
-            style={{ background: "var(--emerald)", color: "var(--navy-deep)" }}
-          >
-            Ctrl+C · Ctrl+V
-          </div>
-        </div>
-        <h2 className="slide-title mt-6" style={{ color: "#F5F7FA", maxWidth: 1600 }}>
-          O <span style={{ color: "var(--emerald)" }}>Dossiê do Sinistro</span> pronto
-          <br />
-          para o corretor no painel
-        </h2>
-
-        <div className="mt-10 grid flex-1 grid-cols-12 gap-10">
-          {/* Left: dossier mock */}
-          <div className="col-span-7">
-            <div
-              className="h-full rounded-2xl p-8"
-              style={{
-                background: "#F5F7FA",
-                color: "var(--navy-deep)",
-                boxShadow: "0 30px 60px -30px oklch(0 0 0 / 0.5)",
-              }}
-            >
-              <div className="flex items-center justify-between border-b pb-4" style={{ borderColor: "var(--slate-mid)" }}>
-                <div>
-                  <div className="slide-chrome" style={{ color: "var(--navy-soft)" }}>
-                    Dossiê #SN-2411
-                  </div>
-                  <div className="slide-body-lg mt-1 font-semibold">Lucas Andrade · Auto · Porto Seguro</div>
-                </div>
-                <div
-                  className="rounded-full px-4 py-2 slide-badge"
-                  style={{ background: "var(--emerald)", color: "#fff" }}
-                >
-                  Pronto para portal
-                </div>
-              </div>
-
-              <div className="mt-6">
-                <div className="slide-chrome" style={{ color: "var(--navy-soft)" }}>
-                  Resumo executivo
-                </div>
-                <div className="slide-body mt-2" style={{ maxWidth: 900 }}>
-                  Colisão traseira em baixa velocidade na Av. Faria Lima às 18h20. Dano
-                  concentrado no para-choque e lanterna direita. Sem vítimas.
-                </div>
-              </div>
-
-              <div className="mt-6 grid grid-cols-3 gap-3">
-                {["cnh.jpg", "crlv.pdf", "dano-1.jpg", "dano-2.jpg", "dano-3.jpg", "audio.mp3"].map((f) => (
-                  <div
-                    key={f}
-                    className="rounded-lg px-3 py-2 slide-caption"
-                    style={{ background: "var(--slate-light)", color: "var(--navy)" }}
-                  >
-                    📎 {f}
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-6">
-                <div className="flex items-center justify-between">
-                  <div className="slide-chrome" style={{ color: "var(--navy-soft)" }}>
-                    Texto técnico (para colar no portal)
-                  </div>
-                  <div
-                    className="rounded-md px-3 py-1 slide-caption font-semibold"
-                    style={{ background: "var(--navy-deep)", color: "#fff" }}
-                  >
-                    Copiar
-                  </div>
-                </div>
-                <div
-                  className="mt-3 rounded-lg p-4 slide-caption"
-                  style={{
-                    background: "var(--slate-light)",
-                    color: "var(--navy)",
-                    fontFamily: "ui-monospace, monospace",
-                    lineHeight: 1.5,
-                  }}
-                >
-                  Em 12/11/2026, o segurado conduzia o veículo VW Polo, placa XXX-0000,
-                  quando foi atingido na traseira por terceiro na Av. Faria Lima…
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right: extras */}
-          <div className="col-span-5 flex flex-col justify-center gap-6">
-            {[
-              ["📋", "Resumo executivo da batida", "A IA sintetiza a dinâmica em 3 linhas."],
-              ["📁", "Arquivos organizados", "Documentos e fotos nomeados e categorizados."],
-              ["✍️", "Texto técnico redigido", "Descrição pronta no padrão da seguradora."],
-              ["🧭", "Roteiro do B.O. online", "Mastigado, campo a campo, para o cliente."],
-            ].map(([e, t, d]) => (
-              <div
-                key={t}
-                className="rounded-2xl p-6"
-                style={{
-                  background: "oklch(1 0 0 / 0.06)",
-                  border: "1px solid oklch(1 0 0 / 0.12)",
-                }}
-              >
-                <div className="flex items-start gap-5">
-                  <div style={{ fontSize: 40 }}>{e}</div>
-                  <div>
-                    <div className="slide-body-lg font-semibold" style={{ color: "#F5F7FA" }}>
-                      {t}
-                    </div>
-                    <div className="slide-body" style={{ color: "oklch(0.78 0.02 250)" }}>
-                      {d}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </SlideFrame>
-  );
-}
-
-/* ================================================================
- * Slide 8 — Entregável 4: Financeiro
- * ================================================================ */
-export function Deliverable4() {
-  return (
-    <SlideFrame variant="light" pageNumber={8}>
-      <div className="absolute inset-0 flex flex-col px-24 py-20 pb-32">
-        <div className="flex items-center gap-6">
-          <Kicker>Entregável 04</Kicker>
-          <div
-            className="rounded-full px-5 py-2 slide-badge"
-            style={{ background: "var(--emerald)", color: "var(--navy-deep)" }}
-          >
-            Fluxo de Caixa
-          </div>
-        </div>
-        <h2 className="slide-title mt-6" style={{ maxWidth: 1600 }}>
-          Gestão de entradas e saídas
-          <br />
-          <span style={{ color: "var(--navy-soft)" }}>em tempo real</span>
-        </h2>
-
-        <div className="mt-10 grid flex-1 grid-cols-12 gap-10">
-          <div className="col-span-5">
-            <p className="slide-body" style={{ color: "var(--navy-soft)", maxWidth: 700 }}>
-              Substituição de planilhas complexas por controle de <b>saldo líquido real</b>{" "}
-              do mês.
-            </p>
-
-            <div className="mt-8 space-y-4">
-              {[
-                ["Importação por IA", "Extratos de comissão das 9 seguradoras — entradas automáticas."],
-                ["Ação rápida: Entrada", "Registre entradas diretas em 1 clique."],
-                ["Ação rápida: Saída", "Custos operacionais e retiradas manuais."],
-              ].map(([t, d]) => (
-                <Card key={t} className="p-6">
-                  <div className="slide-body-lg font-semibold" style={{ color: "var(--navy-deep)" }}>
-                    {t}
-                  </div>
-                  <div className="slide-body mt-1" style={{ color: "var(--navy-soft)" }}>
-                    {d}
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* Right: financial dashboard */}
-          <div className="col-span-7">
-            <Card className="p-8">
-              <div className="flex items-center justify-between border-b pb-5" style={{ borderColor: "var(--slate-mid)" }}>
-                <div className="slide-chrome" style={{ color: "var(--navy-soft)" }}>
-                  Portal Financeiro · Novembro / 2026
-                </div>
-                <div className="flex gap-2">
-                  <div
-                    className="rounded-md px-3 py-1 slide-caption font-semibold"
-                    style={{ background: "var(--emerald)", color: "#fff" }}
-                  >
-                    + Entrada
-                  </div>
-                  <div
-                    className="rounded-md px-3 py-1 slide-caption font-semibold"
-                    style={{ background: "var(--navy-deep)", color: "#fff" }}
-                  >
-                    − Saída
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-6 grid grid-cols-3 gap-4">
-                {[
-                  { k: "Entradas", v: "R$ 84.720", c: "var(--emerald)" },
-                  { k: "Saídas", v: "R$ 22.410", c: "oklch(0.55 0.15 25)" },
-                  { k: "Saldo líquido", v: "R$ 62.310", c: "var(--navy-deep)" },
-                ].map((s) => (
-                  <div
-                    key={s.k}
-                    className="rounded-xl p-5"
-                    style={{ background: "var(--slate-light)" }}
-                  >
-                    <div className="slide-caption" style={{ color: "var(--navy-soft)" }}>
-                      {s.k}
-                    </div>
-                    <div
-                      className="mt-2"
-                      style={{
-                        fontFamily: "var(--font-display)",
-                        fontSize: 42,
-                        color: s.c,
-                        lineHeight: 1,
-                        letterSpacing: "-0.02em",
-                      }}
-                    >
-                      {s.v}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Bar chart */}
-              <div className="mt-8">
-                <div className="slide-chrome mb-3" style={{ color: "var(--navy-soft)" }}>
-                  Entradas por seguradora
-                </div>
-                <div className="flex items-end gap-3" style={{ height: 180 }}>
-                  {[
-                    ["Porto", 90],
-                    ["Azul", 62],
-                    ["HDI", 78],
-                    ["Bradesco", 55],
-                    ["SulAm.", 70],
-                    ["Allianz", 40],
-                    ["Tokio", 48],
-                    ["Mapfre", 30],
-                    ["Liberty", 22],
-                  ].map(([n, h]) => (
-                    <div key={n as string} className="flex flex-1 flex-col items-center gap-2">
-                      <div
-                        className="w-full rounded-t-md"
-                        style={{
-                          height: `${h}%`,
-                          background: "linear-gradient(180deg, var(--emerald), oklch(0.45 0.14 165))",
-                        }}
-                      />
-                      <div className="slide-caption" style={{ color: "var(--navy-soft)" }}>
-                        {n}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Card>
-          </div>
-        </div>
-      </div>
-    </SlideFrame>
-  );
-}
-
-/* ================================================================
- * Slide 9 — Cronograma
+ * Slide 7 — Cronograma 30 dias
  * ================================================================ */
 export function Timeline() {
   const phases = [
     {
-      d: "Dias 1 – 5",
-      t: "Mapeamento & Base",
-      body: "Mapeamento de PDFs das 9 seguradoras e estruturação do Banco de Dados.",
+      r: "Dias 1 – 10",
+      t: "Estruturação",
+      d: "Banco de dados e mapeamento dos layouts de PDFs das seguradoras.",
     },
     {
-      d: "Dias 6 – 15",
-      t: "Assistente WhatsApp",
-      body: "Desenvolvimento do assistente (transcrição e visão computacional) e fluxos no n8n.",
+      r: "Dias 11 – 20",
+      t: "Desenvolvimento",
+      d: "Assistente de WhatsApp e fluxos de IA construídos no n8n.",
     },
     {
-      d: "Dias 16 – 20",
-      t: "Integração & Testes",
-      body: "Integração das telas do painel, testes de disparos e homologação financeira.",
+      r: "Dias 21 – 27",
+      t: "Homologação",
+      d: "Painel financeiro validado e testes integrados de disparo.",
     },
     {
-      d: "Dia 21",
-      t: "Treinamento & Go-Live",
-      body: "Treinamento prático da equipe e entrega oficial do sistema rodando.",
+      r: "Dias 28 – 30",
+      t: "Entrega",
+      d: "Treinamento da equipe, ajustes finos e entrega oficial das chaves.",
     },
   ];
   return (
-    <SlideFrame variant="light" pageNumber={9}>
+    <SlideFrame variant="dark" pageNumber={7}>
       <div className="absolute inset-0 flex flex-col px-24 py-20 pb-32">
-        <Kicker>04 · Execução</Kicker>
-        <div className="mt-6 flex items-baseline gap-10">
-          <h2 className="slide-title" style={{ maxWidth: 1200 }}>
-            Do desenho à entrega em
-          </h2>
-          <div
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: 180,
-              lineHeight: 1,
-              letterSpacing: "-0.05em",
-              color: "var(--emerald)",
-            }}
-          >
-            21
-          </div>
-          <div className="slide-subtitle" style={{ color: "var(--navy-soft)" }}>
-            dias
-          </div>
-        </div>
+        <Kicker variant="dark">06 · Cronograma</Kicker>
+        <h2 className="slide-title mt-6" style={{ color: "#F5F7FA", maxWidth: 1500 }}>
+          Do desenho à entrega em{" "}
+          <span style={{ color: "var(--emerald)" }}>30 dias</span>
+        </h2>
 
-        <div className="mt-16 relative">
-          {/* Track */}
-          <div
-            className="absolute left-0 right-0"
-            style={{ top: 44, height: 4, background: "var(--slate-mid)", borderRadius: 4 }}
-          />
-          <div
-            className="absolute left-0"
-            style={{
-              top: 44,
-              height: 4,
-              width: "100%",
-              background: "linear-gradient(90deg, var(--navy) 0%, var(--emerald) 100%)",
-              borderRadius: 4,
-            }}
-          />
-
-          <div className="grid grid-cols-4 gap-10">
-            {phases.map((p, i) => (
-              <div key={p.d} className="flex flex-col items-start">
-                <div
-                  className="flex h-[88px] w-[88px] items-center justify-center rounded-full"
-                  style={{
-                    background: i === phases.length - 1 ? "var(--emerald)" : "var(--navy-deep)",
-                    color: i === phases.length - 1 ? "var(--navy-deep)" : "#F5F7FA",
-                    fontFamily: "var(--font-display)",
-                    fontSize: 36,
-                    boxShadow: "0 12px 30px -14px oklch(0.20 0.055 258 / 0.45)",
-                  }}
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-                <div className="slide-chrome mt-6" style={{ color: "var(--emerald)" }}>
-                  {p.d}
-                </div>
-                <div className="slide-body-lg mt-2 font-semibold" style={{ color: "var(--navy-deep)" }}>
-                  {p.t}
-                </div>
-                <div className="slide-body mt-3" style={{ color: "var(--navy-soft)", maxWidth: 380 }}>
-                  {p.body}
-                </div>
+        <div className="mt-14 grid flex-1 grid-cols-4 gap-6">
+          {phases.map((p, i) => (
+            <div
+              key={p.r}
+              className="flex flex-col rounded-2xl p-8"
+              style={{
+                background: "oklch(1 0 0 / 0.06)",
+                border: "1px solid oklch(1 0 0 / 0.12)",
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: 64,
+                  color: "var(--emerald)",
+                  lineHeight: 1,
+                }}
+              >
+                0{i + 1}
               </div>
-            ))}
-          </div>
+              <div className="slide-chrome mt-6" style={{ color: "var(--emerald-soft)" }}>
+                {p.r}
+              </div>
+              <div
+                className="slide-body-lg mt-3 font-semibold"
+                style={{ color: "#F5F7FA" }}
+              >
+                {p.t}
+              </div>
+              <div
+                className="slide-body mt-3"
+                style={{ color: "oklch(0.80 0.02 250)" }}
+              >
+                {p.d}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </SlideFrame>
@@ -956,172 +533,114 @@ export function Timeline() {
 }
 
 /* ================================================================
- * Slide 10 — Proposta Comercial
+ * Slide 8 — Proposta Comercial
  * ================================================================ */
 export function Proposal() {
   return (
-    <SlideFrame variant="dark" pageNumber={10}>
+    <SlideFrame variant="light" pageNumber={8}>
       <div className="absolute inset-0 flex flex-col px-24 py-20 pb-32">
-        <Kicker variant="dark">05 · Proposta Comercial</Kicker>
-        <h2 className="slide-title mt-6" style={{ color: "#F5F7FA", maxWidth: 1600 }}>
+        <Kicker>07 · Proposta Comercial</Kicker>
+        <h2 className="slide-title mt-6" style={{ maxWidth: 1500 }}>
           Investimento e{" "}
           <span style={{ color: "var(--emerald)" }}>parceria de sucesso</span>
         </h2>
 
         <div className="mt-12 grid flex-1 grid-cols-12 gap-8">
-          {/* Setup card */}
-          <div className="col-span-4">
-            <div
-              className="h-full rounded-2xl p-8"
-              style={{
-                background: "oklch(1 0 0 / 0.05)",
-                border: "1px solid oklch(1 0 0 / 0.12)",
-              }}
-            >
-              <div className="slide-chrome" style={{ color: "oklch(0.75 0.02 250)" }}>
-                Setup de desenvolvimento
-              </div>
-              <div
-                className="mt-6"
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: 92,
-                  color: "#F5F7FA",
-                  lineHeight: 1,
-                  letterSpacing: "-0.03em",
-                }}
-              >
-                R$ 3.000
-              </div>
-              <div className="slide-caption mt-2" style={{ color: "oklch(0.70 0.02 250)" }}>
-                Valor promocional · 1º Case de Sucesso
-              </div>
-
-              <div
-                className="mt-8 rounded-xl p-4"
-                style={{ background: "oklch(1 0 0 / 0.06)" }}
-              >
-                <div className="slide-body" style={{ color: "#F5F7FA" }}>
-                  Parcelado em até <b>3x</b>
-                </div>
-                <div className="slide-caption mt-2" style={{ color: "oklch(0.75 0.02 250)" }}>
-                  ou 50% de entrada + 50% na entrega.
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Monthly */}
-          <div className="col-span-4">
-            <div
-              className="h-full rounded-2xl p-8"
-              style={{
-                background: "linear-gradient(160deg, var(--emerald) 0%, oklch(0.45 0.14 165) 100%)",
-                color: "var(--navy-deep)",
-              }}
-            >
-              <div className="slide-chrome" style={{ color: "var(--navy-deep)", opacity: 0.8 }}>
-                Mensalidade · Tudo Incluso
-              </div>
-              <div className="flex items-baseline gap-3">
-                <div
-                  className="mt-6"
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: 92,
-                    lineHeight: 1,
-                    letterSpacing: "-0.03em",
-                  }}
-                >
-                  R$ 500
-                </div>
-                <div className="slide-body-lg" style={{ opacity: 0.75 }}>
-                  / mês
-                </div>
-              </div>
-              <div className="slide-caption mt-2" style={{ opacity: 0.85 }}>
-                ≈ R$ 16,60 por dia
-              </div>
-
-              <div className="mt-8 space-y-2">
-                {[
-                  "Suporte dedicado",
-                  "VPS + infraestrutura",
-                  "Tokens de IA inclusos",
-                  "API estável do WhatsApp",
-                ].map((f) => (
-                  <div key={f} className="flex items-center gap-3 slide-body">
-                    <span style={{ fontSize: 20 }}>✓</span> {f}
+          <div className="col-span-7 space-y-6">
+            <Card className="p-10">
+              <div className="flex items-baseline justify-between gap-6">
+                <div>
+                  <div className="slide-chrome" style={{ color: "var(--navy-soft)" }}>
+                    Setup de Desenvolvimento
                   </div>
-                ))}
+                  <div
+                    className="mt-3"
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontSize: 88,
+                      lineHeight: 1,
+                      color: "var(--navy-deep)",
+                      letterSpacing: "-0.03em",
+                    }}
+                  >
+                    R$ 3.000
+                  </div>
+                </div>
+                <div
+                  className="rounded-full px-5 py-2 slide-badge"
+                  style={{ background: "var(--emerald)", color: "var(--navy-deep)" }}
+                >
+                  Case Nº 1
+                </div>
               </div>
+              <div className="slide-body mt-4" style={{ color: "var(--navy-soft)", maxWidth: 900 }}>
+                Valor promocional de 1º Case de Sucesso, parcelado em até 3x ou 50%
+                de entrada + 50% na entrega.
+              </div>
+            </Card>
 
-              <div
-                className="mt-6 rounded-lg px-4 py-3 slide-badge"
-                style={{ background: "var(--navy-deep)", color: "#F5F7FA" }}
-              >
-                Custo extra para a Mágikhi: R$ 0,00
+            <Card className="p-10">
+              <div className="flex items-baseline justify-between gap-6">
+                <div>
+                  <div className="slide-chrome" style={{ color: "var(--navy-soft)" }}>
+                    Mensalidade
+                  </div>
+                  <div
+                    className="mt-3"
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontSize: 88,
+                      lineHeight: 1,
+                      color: "var(--emerald)",
+                      letterSpacing: "-0.03em",
+                    }}
+                  >
+                    R$ 500<span style={{ fontSize: 40, color: "var(--navy-soft)" }}> /mês</span>
+                  </div>
+                </div>
               </div>
-            </div>
+              <div className="slide-body mt-4" style={{ color: "var(--navy-soft)", maxWidth: 900 }}>
+                Garantia de funcionamento, suporte dedicado e custos de servidor e
+                API de WhatsApp <b style={{ color: "var(--navy-deep)" }}>100% inclusos</b>.
+              </div>
+            </Card>
           </div>
 
-          {/* ROI */}
-          <div className="col-span-4">
+          <div className="col-span-5">
             <div
-              className="h-full rounded-2xl p-8"
+              className="flex h-full flex-col rounded-2xl p-10"
               style={{
-                background: "#F5F7FA",
-                color: "var(--navy-deep)",
+                background: "linear-gradient(160deg, var(--navy-deep), var(--navy))",
+                color: "#F5F7FA",
               }}
             >
-              <div className="slide-chrome" style={{ color: "var(--navy-soft)" }}>
-                ROI Esperado
+              <div className="slide-chrome" style={{ color: "var(--emerald-soft)" }}>
+                Transparência total
+              </div>
+              <div className="slide-title mt-6" style={{ color: "#F5F7FA", fontSize: 60, lineHeight: 1.05 }}>
+                Tokens de IA no cartão da corretora
               </div>
               <div
-                className="mt-6"
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: 92,
-                  color: "var(--emerald)",
-                  lineHeight: 1,
-                  letterSpacing: "-0.03em",
-                }}
+                className="slide-body-lg mt-6"
+                style={{ color: "oklch(0.85 0.02 250)" }}
               >
-                +42h
-              </div>
-              <div className="slide-caption mt-2" style={{ color: "var(--navy-soft)" }}>
-                mensais liberadas de burocracia
+                O consumo real de tokens (OpenAI) é debitado direto no cartão da
+                Mágikhi, estimado em apenas{" "}
+                <span style={{ color: "var(--emerald)", fontWeight: 600 }}>
+                  ~US$ 5/mês
+                </span>{" "}
+                conforme o uso real — sem intermediários, sem markup.
               </div>
 
-              <div className="mt-8 slide-body" style={{ color: "var(--navy)" }}>
-                O fechamento de apenas{" "}
-                <b style={{ color: "var(--emerald)" }}>2 novas apólices</b> adicionais no
-                mês já paga o investimento e gera{" "}
-                <b>lucro recorrente</b> para a corretora.
-              </div>
-
-              <div
-                className="mt-6 rounded-lg px-4 py-3 slide-badge"
-                style={{ background: "var(--navy-deep)", color: "#F5F7FA" }}
-              >
-                Próximo passo: assinatura em 48h
+              <div className="mt-auto pt-10">
+                <div
+                  className="rounded-xl px-6 py-5 slide-body font-semibold"
+                  style={{ background: "var(--emerald)", color: "var(--navy-deep)" }}
+                >
+                  Vamos transformar a Mágikhi no Case Nº 1 da Elumina IA.
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Signature strip */}
-        <div className="mt-10 flex items-center justify-between rounded-2xl px-8 py-5"
-          style={{ background: "oklch(1 0 0 / 0.05)", border: "1px solid oklch(1 0 0 / 0.10)" }}
-        >
-          <div className="flex items-center gap-6">
-            <EluminaMark variant="dark" small />
-            <div className="slide-body" style={{ color: "#F5F7FA" }}>
-              Elumina IA · Consultoria de Tecnologia
-            </div>
-          </div>
-          <div className="slide-chrome" style={{ color: "oklch(0.75 0.02 250)" }}>
-            proposta válida por 15 dias
           </div>
         </div>
       </div>
