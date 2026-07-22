@@ -78,7 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Mágikhi Corretora × Elumina IA — Ecossistema de Inteligência Operacional" },
-      { name: "description", content: "Proposta comercial: centralização de dados, triagem de sinistros por IA e controle financeiro para a Mágikhi Corretora de Seguros." },
+      { name: "description", content: "Proposta comercial: centralização de dados, acompanhamento proativo de sinistros e visão de entradas e saídas para a Mágikhi Corretora de Seguros." },
       { name: "author", content: "Elumina IA" },
       { property: "og:title", content: "Mágikhi Corretora × Elumina IA — Ecossistema de Inteligência Operacional" },
       { property: "og:description", content: "Proposta comercial: centralização de dados, triagem de sinistros por IA e controle financeiro para a Mágikhi Corretora de Seguros." },
