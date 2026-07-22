@@ -35,8 +35,8 @@ export function Cover() {
             className="slide-subtitle mt-10"
             style={{ color: "oklch(0.82 0.02 250)", maxWidth: 1500 }}
           >
-            Centralização de dados, triagem de sinistros por IA e controle de fluxo
-            de caixa para a Mágikhi Corretora.
+            Centralização de dados, acompanhamento proativo de sinistros e visão
+            de entradas e saídas para a Mágikhi Corretora.
           </p>
         </div>
 
@@ -46,7 +46,7 @@ export function Cover() {
               className="rounded-full px-6 py-3 slide-badge"
               style={{ background: "var(--emerald)", color: "var(--navy-deep)" }}
             >
-              Case de Sucesso · Nº 1
+              Condição Especial · Projeto-Piloto
             </div>
             <div className="slide-chrome" style={{ color: "oklch(0.75 0.02 250)" }}>
               8 slides
@@ -68,15 +68,15 @@ export function Cover() {
  * Slide 2 — O Cenário Operacional
  * ================================================================ */
 const SEGURADORAS = [
-  "Porto Seguro",
-  "Azul Seguros",
   "HDI",
   "Bradesco",
-  "SulAmérica",
-  "Allianz",
+  "Porto Seguro",
+  "Yelum",
+  "Zurich",
   "Tokio Marine",
+  "Allianz",
   "Mapfre",
-  "Liberty",
+  "Suhai",
 ];
 
 export function Scenario() {
@@ -92,20 +92,21 @@ export function Scenario() {
         <div className="mt-12 grid flex-1 grid-cols-12 gap-10">
           <div className="col-span-6 flex flex-col justify-start">
             <p className="slide-body-lg" style={{ color: "var(--navy)", maxWidth: 780 }}>
-              Gerenciar clientes acessando manualmente{" "}
-              <b style={{ color: "var(--navy-deep)" }}>9 portais de seguradoras</b>{" "}
-              (Porto Seguro, Azul, HDI, Bradesco, etc.) gera descentralização e
-              retrabalho.
+              Para consultar parcelas, apólices e informações dos clientes, a
+              Mágikhi ainda precisa acessar manualmente os portais das
+              seguradoras. O SeguroLink auxilia principalmente nos cálculos,
+              mas nem sempre reúne 100% das informações necessárias.
             </p>
             <p
               className="slide-body mt-8"
               style={{ color: "var(--navy-soft)", maxWidth: 780 }}
             >
-              A Mágikhi precisa de uma{" "}
+              A proposta é criar uma{" "}
               <span style={{ color: "var(--emerald)", fontWeight: 600 }}>
-                Fonte Única da Verdade
+                base única e confiável
               </span>{" "}
-              para organizar seus dados e operações em uma única tela.
+              para consultar clientes, seguradoras, apólices e ocorrências em
+              uma única tela.
             </p>
           </div>
 
@@ -165,28 +166,41 @@ export function Bottleneck() {
         </p>
 
         <div className="mt-12 grid flex-1 grid-cols-2 gap-10">
-          {[
-            {
-              t: "Sinistros",
-              d: "A cada ocorrência, horas de WhatsApp com o cliente para coletar relato, documentos e fotos — antes mesmo de abrir o caso no portal da seguradora.",
-            },
-            {
-              t: "Cobranças em atraso",
-              d: "Conferência manual de relatórios de pendências e contato individual com cada segurado inadimplente antes que a apólice caia.",
-            },
-          ].map((b) => (
-            <Card key={b.t} className="p-10">
-              <div className="slide-chrome" style={{ color: "var(--emerald)" }}>
-                {b.t}
-              </div>
-              <div
-                className="slide-body-lg mt-4"
-                style={{ color: "var(--navy-deep)" }}
-              >
-                {b.d}
-              </div>
-            </Card>
-          ))}
+          <Card className="p-10">
+            <div className="slide-chrome" style={{ color: "var(--emerald)" }}>
+              Sinistros
+            </div>
+            <div
+              className="slide-body-lg mt-4"
+              style={{ color: "var(--navy-deep)" }}
+            >
+              O maior desgaste acontece durante o acompanhamento. O cliente
+              envia mensagens e liga repetidamente para descobrir se houve
+              alguma atualização. Para responder, a corretora precisa verificar
+              o andamento e retornar individualmente.
+            </div>
+            <div
+              className="slide-body mt-5"
+              style={{ color: "var(--navy-soft)" }}
+            >
+              Além disso, relatos, documentos e fotos recebidos pelo WhatsApp
+              precisam ser organizados antes do envio à seguradora.
+            </div>
+          </Card>
+
+          <Card className="p-10">
+            <div className="slide-chrome" style={{ color: "var(--emerald)" }}>
+              Cobranças em atraso
+            </div>
+            <div
+              className="slide-body-lg mt-4"
+              style={{ color: "var(--navy-deep)" }}
+            >
+              A consulta de pendências exige acessar os portais das seguradoras,
+              verificar os relatórios disponíveis e entrar em contato
+              individualmente com cada cliente.
+            </div>
+          </Card>
         </div>
 
         <div
@@ -194,11 +208,12 @@ export function Bottleneck() {
           style={{ background: "var(--navy-deep)", color: "#F5F7FA" }}
         >
           <div className="slide-body-lg" style={{ color: "#F5F7FA" }}>
-            O foco do projeto é{" "}
+            O foco do projeto é reduzir consultas repetitivas, organizar as
+            informações e{" "}
             <span style={{ color: "var(--emerald)", fontWeight: 600 }}>
-              eliminar a digitação repetitiva
-            </span>{" "}
-            de dados e transformar o atendimento em algo proativo e automatizado.
+              manter o cliente atualizado de maneira proativa
+            </span>
+            .
           </div>
         </div>
       </div>
@@ -215,9 +230,8 @@ export function Engineering() {
       <div className="absolute inset-0 flex flex-col px-24 py-20 pb-32">
         <Kicker variant="dark">03 · Arquitetura</Kicker>
         <h2 className="slide-title mt-6" style={{ color: "#F5F7FA", maxWidth: 1500 }}>
-          Tecnologia robusta <br />
-          <span style={{ color: "var(--emerald)" }}>baseada em arquivos</span>{" "}
-          <span style={{ color: "oklch(0.75 0.02 250)", fontSize: 60 }}>· 100% segura</span>
+          Tecnologia robusta baseada em{" "}
+          <span style={{ color: "var(--emerald)" }}>arquivos e dados centralizados</span>
         </h2>
 
         <div className="mt-12 grid flex-1 grid-cols-12 gap-10">
@@ -226,17 +240,21 @@ export function Engineering() {
               className="slide-body-lg"
               style={{ color: "oklch(0.85 0.02 250)", maxWidth: 820 }}
             >
-              Sem <s style={{ color: "oklch(0.60 0.10 30)" }}>integrações instáveis via API</s>{" "}
-              que quebram nos portais das seguradoras.
+              Sem depender de integrações instáveis com os portais das
+              seguradoras.
             </p>
             <p
               className="slide-body mt-8"
               style={{ color: "oklch(0.78 0.02 250)", maxWidth: 820 }}
             >
-              Sua equipe faz o download padrão do PDF/Excel do portal (o que leva
-              segundos), arrasta para o painel, e a nossa IA{" "}
-              <b style={{ color: "var(--emerald)" }}>extrai e processa</b> todas as
-              informações de forma automática.
+              Na primeira etapa, a equipe continua realizando o download dos
+              relatórios disponibilizados pelas seguradoras. A partir desse
+              ponto, o sistema{" "}
+              <b style={{ color: "var(--emerald)" }}>
+                elimina grande parte da conferência, organização e digitação
+                repetitiva
+              </b>
+              .
             </p>
 
             <div
@@ -256,7 +274,7 @@ export function Engineering() {
                 className="slide-body-lg mt-2"
                 style={{ color: "#F5F7FA" }}
               >
-                → Transição para a Demonstração Prática do Sistema Mágikhi
+                → Demonstração prática da primeira versão do sistema Mágikhi
               </div>
             </div>
           </div>
@@ -264,9 +282,9 @@ export function Engineering() {
           <div className="col-span-6 flex items-center">
             <div className="w-full space-y-6">
               {[
-                { n: "01", t: "Download padrão", d: "PDF ou Excel do portal da seguradora." },
-                { n: "02", t: "Drag & drop no painel", d: "A equipe apenas arrasta o arquivo." },
-                { n: "03", t: "IA extrai + processa", d: "Estrutura os dados e atualiza a base." },
+                { n: "01", t: "Download do relatório", d: "PDF ou Excel disponibilizado pela seguradora." },
+                { n: "02", t: "Envio para o painel", d: "A equipe arrasta o arquivo para a área de importação." },
+                { n: "03", t: "IA extrai e organiza", d: "O sistema interpreta os dados e atualiza a base central." },
               ].map((s) => (
                 <div
                   key={s.n}
@@ -313,7 +331,7 @@ export function DigitalEmployee() {
     <SlideFrame variant="light" pageNumber={5}>
       <div className="absolute inset-0 flex flex-col px-24 py-20 pb-32">
         <div className="flex items-center gap-6">
-          <Kicker>04 · Funcionário Digital</Kicker>
+          <Kicker>04 · Sinistros</Kicker>
           <div
             className="rounded-full px-5 py-2 slide-badge"
             style={{ background: "var(--emerald)", color: "var(--navy-deep)" }}
@@ -322,21 +340,22 @@ export function DigitalEmployee() {
           </div>
         </div>
         <h2 className="slide-title mt-6" style={{ maxWidth: 1500 }}>
-          Triagem inteligente de{" "}
+          Acompanhamento proativo de{" "}
           <span style={{ color: "var(--emerald)" }}>sinistros</span>
         </h2>
 
         <div className="mt-12 grid flex-1 grid-cols-12 gap-10">
           <div className="col-span-6">
             <p className="slide-body-lg" style={{ color: "var(--navy)", maxWidth: 820 }}>
-              A IA atende o cliente acidentado com <b>empatia</b> no WhatsApp,
-              cuidando de toda a triagem antes do corretor entrar em ação.
+              Sempre que o andamento for atualizado no painel, o sistema envia
+              automaticamente a mensagem adequada ao cliente — reduzindo
+              ligações, interrupções e cobranças de status.
             </p>
             <ul className="mt-8 space-y-5" style={{ maxWidth: 820 }}>
               {[
-                ["Transcreve relatos em áudio", "Áudios longos viram texto estruturado."],
-                ["Solicita e valida documentos", "CNH e CRLV são checados quanto à nitidez."],
-                ["Monta o dossiê completo", "Caso 100% mastigado, pronto para o portal."],
+                ["Atualiza o cliente automaticamente", "Cada alteração de status pode gerar uma mensagem personalizada pelo WhatsApp."],
+                ["Centraliza o acompanhamento", "A corretora visualiza o cliente, a seguradora e o estágio atual em uma única tela."],
+                ["Organiza documentos e relatos", "Em uma etapa complementar, áudios, fotos e documentos também poderão ser estruturados pelo assistente."],
               ].map(([t, d]) => (
                 <li key={t} className="flex gap-5">
                   <div
@@ -362,17 +381,25 @@ export function DigitalEmployee() {
                 className="rounded-2xl p-8"
                 style={{ background: "var(--slate-light)" }}
               >
-                <div className="slide-chrome mb-5" style={{ color: "var(--navy-soft)" }}>
-                  Dossiê · WhatsApp → Painel do corretor
+                <div className="flex items-center justify-between mb-5">
+                  <div className="slide-chrome" style={{ color: "var(--navy-soft)" }}>
+                    Painel · Acompanhamento de sinistro
+                  </div>
+                  <div
+                    className="rounded-full px-3 py-1 slide-badge"
+                    style={{ background: "var(--navy-deep)", color: "var(--emerald-soft)", fontSize: 14 }}
+                  >
+                    Fluxo demonstrativo
+                  </div>
                 </div>
                 <div className="space-y-3">
                   {[
                     ["Cliente", "Ana Beatriz Rocha"],
                     ["Apólice", "Auto · Porto Seguro"],
-                    ["Relato transcrito", "Colisão traseira em rotatória, sem vítimas."],
-                    ["CNH", "Validada ✓"],
-                    ["CRLV", "Validado ✓"],
-                    ["Fotos", "4/4 nítidas ✓"],
+                    ["Estágio atual", "Vistoria agendada"],
+                    ["Última atualização", "Hoje, 14h32"],
+                    ["Mensagem enviada", "WhatsApp ✓"],
+                    ["Documentos", "Organizados na pasta do caso"],
                   ].map(([k, v]) => (
                     <div
                       key={k}
@@ -391,7 +418,7 @@ export function DigitalEmployee() {
                   className="mt-5 rounded-lg px-5 py-3 slide-body font-semibold text-center"
                   style={{ background: "var(--emerald)", color: "var(--navy-deep)" }}
                 >
-                  Copiar e colar no portal da seguradora
+                  Cliente atualizado automaticamente
                 </div>
               </div>
             </Card>
@@ -419,24 +446,29 @@ export function Customization() {
           <div className="col-span-6">
             <p className="slide-body-lg" style={{ color: "var(--navy)", maxWidth: 820 }}>
               Não entregamos um software de prateleira engessado. A demonstração
-              apresentada é a nossa <b>ideia base</b>.
+              apresentada representa uma{" "}
+              <b>primeira proposta de estrutura</b>, construída com base nas
+              informações enviadas pela Mágikhi.
             </p>
             <p
               className="slide-body mt-8"
               style={{ color: "var(--navy-soft)", maxWidth: 820 }}
             >
-              Como nossa engenharia é própria, o painel, os botões e os relatórios
-              financeiros podem ser <b style={{ color: "var(--emerald)" }}>adaptados</b>{" "}
-              conforme a rotina real de trabalho da corretora exigir.
+              Antes do desenvolvimento definitivo, campos, telas, categorias,
+              relatórios e fluxos serão{" "}
+              <b style={{ color: "var(--emerald)" }}>
+                validados com a Geisa
+              </b>{" "}
+              e adaptados à rotina real da corretora.
             </p>
           </div>
 
           <div className="col-span-6 grid grid-cols-2 gap-6 self-center">
             {[
-              { t: "Painel", d: "Layout e blocos ajustados à sua operação." },
-              { t: "Botões e fluxos", d: "Ações rápidas para o dia a dia." },
-              { t: "Relatórios financeiros", d: "Visão que faz sentido para você." },
-              { t: "Engenharia própria", d: "Sem depender de fornecedor externo." },
+              { t: "Painel", d: "Layout e informações ajustados à operação." },
+              { t: "Botões e fluxos", d: "Ações rápidas alinhadas à rotina da corretora." },
+              { t: "Relatórios financeiros", d: "Primeira visão de entradas e saídas, ajustável após validação." },
+              { t: "Desenvolvimento próprio", d: "Ajustes realizados diretamente pela equipe da Elumina IA." },
             ].map((c) => (
               <Card key={c.t} className="p-7">
                 <div className="slide-chrome" style={{ color: "var(--emerald)" }}>
@@ -460,24 +492,24 @@ export function Customization() {
 export function Timeline() {
   const phases = [
     {
-      r: "Dias 1 – 10",
-      t: "Estruturação",
-      d: "Banco de dados e mapeamento dos layouts de PDFs das seguradoras.",
+      r: "Dias 1 – 7",
+      t: "Validação e mapeamento",
+      d: "Confirmação dos fluxos, campos necessários e análise de amostras dos relatórios das seguradoras.",
     },
     {
-      r: "Dias 11 – 20",
-      t: "Desenvolvimento",
-      d: "Assistente de WhatsApp e fluxos de IA construídos no n8n.",
+      r: "Dias 8 – 18",
+      t: "Base e importação",
+      d: "Construção da base cadastral, painel e processamento inicial de PDFs e planilhas.",
     },
     {
-      r: "Dias 21 – 27",
-      t: "Homologação",
-      d: "Painel financeiro validado e testes integrados de disparo.",
+      r: "Dias 19 – 26",
+      t: "Sinistros e WhatsApp",
+      d: "Central de acompanhamento e mensagens automáticas de atualização ao cliente.",
     },
     {
-      r: "Dias 28 – 30",
-      t: "Entrega",
-      d: "Treinamento da equipe, ajustes finos e entrega oficial das chaves.",
+      r: "Dias 27 – 30",
+      t: "Financeiro, homologação e entrega",
+      d: "Visão inicial de entradas e saídas, testes, treinamento e ajustes finais.",
     },
   ];
   return (
@@ -485,11 +517,18 @@ export function Timeline() {
       <div className="absolute inset-0 flex flex-col px-24 py-20 pb-32">
         <Kicker variant="dark">06 · Cronograma</Kicker>
         <h2 className="slide-title mt-6" style={{ color: "#F5F7FA", maxWidth: 1500 }}>
-          Do desenho à entrega em{" "}
+          Primeira versão operacional em até{" "}
           <span style={{ color: "var(--emerald)" }}>30 dias</span>
         </h2>
+        <p
+          className="slide-body mt-5"
+          style={{ color: "oklch(0.78 0.02 250)", maxWidth: 1500 }}
+        >
+          Prazo contado após a validação dos fluxos e o recebimento de amostras
+          dos arquivos utilizados pela corretora.
+        </p>
 
-        <div className="mt-14 grid flex-1 grid-cols-4 gap-6">
+        <div className="mt-12 grid flex-1 grid-cols-4 gap-6">
           {phases.map((p, i) => (
             <div
               key={p.r}
@@ -551,7 +590,7 @@ export function Proposal() {
               <div className="flex items-baseline justify-between gap-6">
                 <div>
                   <div className="slide-chrome" style={{ color: "var(--navy-soft)" }}>
-                    Setup de Desenvolvimento
+                    Implantação
                   </div>
                   <div
                     className="mt-3"
@@ -570,12 +609,16 @@ export function Proposal() {
                   className="rounded-full px-5 py-2 slide-badge"
                   style={{ background: "var(--emerald)", color: "var(--navy-deep)" }}
                 >
-                  Case Nº 1
+                  Condição Especial — Projeto-Piloto
                 </div>
               </div>
-              <div className="slide-body mt-4" style={{ color: "var(--navy-soft)", maxWidth: 900 }}>
-                Valor promocional de 1º Case de Sucesso, parcelado em até 3x ou 50%
-                de entrada + 50% na entrega.
+              <div className="slide-body mt-4" style={{ color: "var(--navy-deep)", maxWidth: 900 }}>
+                Desenvolvimento da primeira versão operacional para o segmento
+                Automóvel, conforme escopo validado com a Mágikhi.
+              </div>
+              <div className="slide-body mt-3" style={{ color: "var(--navy-soft)", maxWidth: 900 }}>
+                50% na entrada e 50% na entrega e validação, ou parcelamento em
+                até 3 vezes sem juros.
               </div>
             </Card>
 
@@ -600,8 +643,8 @@ export function Proposal() {
                 </div>
               </div>
               <div className="slide-body mt-4" style={{ color: "var(--navy-soft)", maxWidth: 900 }}>
-                Garantia de funcionamento, suporte dedicado e custos de servidor e
-                API de WhatsApp <b style={{ color: "var(--navy-deep)" }}>100% inclusos</b>.
+                Inclui hospedagem, manutenção da solução, suporte operacional e
+                ajustes de pequeno porte dentro do escopo contratado.
               </div>
             </Card>
           </div>
@@ -617,27 +660,42 @@ export function Proposal() {
               <div className="slide-chrome" style={{ color: "var(--emerald-soft)" }}>
                 Transparência total
               </div>
-              <div className="slide-title mt-6" style={{ color: "#F5F7FA", fontSize: 60, lineHeight: 1.05 }}>
-                Tokens de IA no cartão da corretora
+              <div className="slide-title mt-6" style={{ color: "#F5F7FA", fontSize: 48, lineHeight: 1.1 }}>
+                Consumo de Inteligência Artificial pago diretamente pela
+                corretora
               </div>
               <div
-                className="slide-body-lg mt-6"
+                className="slide-body mt-6"
                 style={{ color: "oklch(0.85 0.02 250)" }}
               >
-                O consumo real de tokens (OpenAI) é debitado direto no cartão da
-                Mágikhi, estimado em apenas{" "}
+                O consumo das ferramentas de Inteligência Artificial será
+                cobrado diretamente na conta cadastrada pela Mágikhi, sem
+                margem ou intermediação da Elumina IA.
+              </div>
+              <div
+                className="slide-body-lg mt-5"
+                style={{ color: "#F5F7FA" }}
+              >
+                Estimativa inicial:{" "}
                 <span style={{ color: "var(--emerald)", fontWeight: 600 }}>
-                  ~US$ 5/mês
-                </span>{" "}
-                conforme o uso real — sem intermediários, sem markup.
+                  aproximadamente US$ 5/mês
+                </span>
+              </div>
+              <div
+                className="slide-caption mt-3"
+                style={{ color: "oklch(0.75 0.02 250)" }}
+              >
+                Valor ilustrativo e variável conforme o volume de arquivos,
+                imagens, áudios e mensagens processados.
               </div>
 
-              <div className="mt-auto pt-10">
+              <div className="mt-auto pt-8">
                 <div
                   className="rounded-xl px-6 py-5 slide-body font-semibold"
                   style={{ background: "var(--emerald)", color: "var(--navy-deep)" }}
                 >
-                  Vamos transformar a Mágikhi no Case Nº 1 da Elumina IA.
+                  Vamos construir e validar o projeto-piloto da Mágikhi junto
+                  com a Geisa.
                 </div>
               </div>
             </div>
