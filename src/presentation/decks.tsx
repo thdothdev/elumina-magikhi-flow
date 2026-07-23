@@ -97,17 +97,22 @@ export function Scenario() {
               seguradoras. O SeguroLink auxilia principalmente nos cálculos,
               mas nem sempre reúne 100% das informações necessárias.
             </p>
-            <p
-              className="slide-body mt-8"
-              style={{ color: "var(--navy-soft)", maxWidth: 780 }}
-            >
-              A proposta é criar uma{" "}
-              <span style={{ color: "var(--emerald)", fontWeight: 600 }}>
-                base única e confiável
-              </span>{" "}
-              para consultar clientes, seguradoras, apólices e ocorrências em
-              uma única tela.
-            </p>
+
+            <div className="mt-10 grid grid-cols-3 gap-6">
+              <div className="rounded-2xl border p-6 text-center" style={{ borderColor: "var(--slate-mid)" }}>
+                <div className="text-3xl font-bold" style={{ color: "var(--emerald)" }}>R$ 5k</div>
+                <div className="slide-caption mt-1" style={{ color: "var(--navy-soft)" }}>Implantação</div>
+              </div>
+              <div className="rounded-2xl border p-6 text-center" style={{ borderColor: "var(--slate-mid)" }}>
+                <div className="text-3xl font-bold" style={{ color: "var(--emerald)" }}>R$ 600</div>
+                <div className="slide-caption mt-1" style={{ color: "var(--navy-soft)" }}>Mensalidade</div>
+              </div>
+              <div className="rounded-2xl border p-6 text-center" style={{ borderColor: "var(--slate-mid)" }}>
+                <div className="text-3xl font-bold" style={{ color: "var(--emerald)" }}>R$ 25–50</div>
+                <div className="slide-caption mt-1" style={{ color: "var(--navy-soft)" }}>/mês custo de IA</div>
+              </div>
+            </div>
+
           </div>
 
           <div className="col-span-6">
